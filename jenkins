@@ -4,11 +4,13 @@ pipeline {
     stages {
         stage('pull') {
             steps {
+                git branch: 'main', url: 'https://github.com/SurajBele/studentdata.git'
                 echo "pull successfull"
             }
         }
         stage('Build') {
             steps {
+                sh '/opt/apache-maven-3.10.0/bin/mvn clean package'
                 echo "Building successfull "
             }
         }
